@@ -3,6 +3,20 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "dev": "bun run --filter '*' dev",
+    "build": "bun run --filter '*' build",
+    "test": "bun run --filter '*' test",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "db:generate": "bun run --cwd packages/db db:generate",
+    "db:migrate": "bun run --cwd packages/db db:migrate",
+    "db:check": "bun run --cwd packages/db db:check",
+    "db:seed": "bun run --cwd packages/db db:seed",
+    "db:studio": "bun run --cwd packages/db db:studio",
+    "db:test:migrate": "bun run --cwd packages/db db:test:migrate",
+    "db:test": "bun --cwd packages/db test"
+  },
   "devDependencies": {
     "@biomejs/biome": "^2.5.7",
     "@types/bun": "latest"

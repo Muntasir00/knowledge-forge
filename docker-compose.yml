@@ -17,5 +17,26 @@ services:
       timeout: 5s
       retries: 10
 
+  postgres-test:
+    image: pgvector/pgvector:pg17
+    container_name: knowledge-forge-postgres-test
+    environment:
+      POSTGRES_USER: knowledge_forge_test
+      POSTGRES_PASSWORD: knowledge_forge_test
+      POSTGRES_DB: knowledge_forge_test
+    ports:
+      - "5433:5432"
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U knowledge_forge_test -d knowledge_forge_test",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
 volumes:
   knowledge_forge_postgres_data:

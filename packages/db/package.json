@@ -1,12 +1,29 @@
 {
-  "name": "db",
-  "module": "index.ts",
-  "type": "module",
+  "name": "@knowledge-forge/db",
+  "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema/index.ts"
   },
-  "peerDependencies": {
-    "typescript": "^5"
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:check": "drizzle-kit check",
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "bun run src/scripts/seed.ts",
+    "db:test:migrate": "drizzle-kit migrate --config=drizzle.test.config.ts",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "drizzle-orm": "latest",
+    "postgres": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "dotenv": "latest",
+    "drizzle-kit": "latest"
   }
 }
