@@ -1,12 +1,12 @@
 {
-  "name": "shared",
-  "module": "index.ts",
-  "type": "module",
+  "name": "@knowledge-forge/shared",
+  "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
   },
-  "peerDependencies": {
-    "typescript": "^5"
+  "dependencies": {
+    "zod": "latest"
   }
 }
